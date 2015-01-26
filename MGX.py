@@ -6,8 +6,6 @@ alpha = []
 for i in range(65, 65+26):
     alpha.append(chr(i))
 
-ignore = [] # Need to move inside loop
-
 #Startup
 print(" -------------------------------------- \n"\
       "|     MGX Sample Number Generator      |\n"\
