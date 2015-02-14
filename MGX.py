@@ -2,9 +2,9 @@ from time import sleep as wait
 #from collections import defaultdict
 first_list = []
 sec_list = []
-alpha = []
-for i in range(65, 65+26):
-    alpha.append(chr(i))
+#alpha = []
+#for i in range(65, 65+26):
+#    alpha.append(chr(i))
 
 #Startup
 print(" -------------------------------------- \n"\
@@ -14,13 +14,16 @@ print(" -------------------------------------- \n"\
 wait(2)
 
 # One Time Information
+print ("Who is the operator?")
+op = raw_input(">>> ")
+
 runum = raw_input("What is the run number?\n>>> ") #Run number for file name
 
 while True: #Which Machine?
     machine = raw_input("Is this being run on Dad or Dave? \n>>> ")
     machine = machine.upper()
     if machine == 'DAD' or machine == 'DAVE':
-        break
+        break # Text is 'blah' or 'blah blah'
     else:
         print("Invalid response. Try again.")
         wait(1)
@@ -50,7 +53,7 @@ while True:
         low = int(raw_input(">>> "))
         print "Highest Number?"
         high = int(raw_input(">>> ")) + 1
-        print "Any missing numbers?"
+        print "Any missing numbers?" # Missing Numbers
         ignore = []
         while True:
             test = raw_input(">>> ")
@@ -69,54 +72,43 @@ while True:
                     ignore.append(test)
             print "Any more missing numbers?"
 
-        print "Multiple colonies on one plate?"
-        mult = {}
+        print "Any suffixes have letters?"
+        letters = {}
         while True:
-            test = raw_input(">>> ")
-            if bool(test) == False:
+            num = raw_input(">>> ")
+            if bool(num) == False:
                 break
             else:
-                test = int(test)
-                if test not in range(low, high):
-                    print "Try Again."
-                    continue
-                else:
-                    test_num = int(raw_input("How many colonies?\n>>> "))
-                    mult[test] = test_num
-            print("Any more multiple colonies?")
-
-        print "Any repeat samples?"
-        rep = []
-        while True:
-            test = raw_input(">>> ")
-            if bool(test) == False:
-                break
-            else:
-                test = int(test)
-                if test not in range(low, high):
-                    print "Try Again."
-                    continue
-                else:
-                    rep.append(test)
-            print("Any more repeat samples?")
-            
-        for i in range(low, high): # Add that prefix to first_list
-            if i in ignore:
+                print "Which letters? (One at a time)"
+                while True:
+                    letter = raw_input(">>> ")
+                    if bool(letter) == False:
+                        break
+                    else:
+                        if num in letters.keys():
+                            pass
+                        else:
+                            letters[num] = []
+                        letters[num].append(letter)
+                        print "Is there any more letters?"
+            print "Any more suffixes with letters?"
+        
+        for i in range(low, high): # Build first_list
+            if i in ignore: #ignore sample
                 continue
             elif i < 10: #Minimum 2 digit suffix
-                if i in mult: #If multiple colonies on plate
-                    for let in range(mult[i]): #Add letters
-                        first_list.append(prefix + "." + '0' + str(i) + alpha[let])
+                if str(i) in letters: #If sample has suffix
+                    for let in range(len(letters[str(i)])): #Add letters
+                        first_list.append(prefix + "." + '0' + str(i) + letters[str(i)][let])
                 else:
                     first_list.append(prefix + "." + '0' + str(i))
             else:
-                if i in mult:
-                    for let in range(mult[i]):
-                        first_list.append(prefix + "." + str(i) + alpha[let])
+                if str(i) in letters: #If sample has suffix
+                    for let in range(len(letters[str(i)])): #Add letters
+                        first_list.append(prefix + "." + str(i) + letters[str(i)][let])
                 else:
                     first_list.append(prefix + "." + str(i))
-            if i in rep: #If repeat sample
-                first_list[-1] = first_list[-1] + "R" #add 'R'
+            
 
         print("Is there another prefix?")
 
