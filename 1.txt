@@ -1,32 +1,69 @@
-1.01_F
-1.02_F
-1.03_F
-1.04_F
-1.05_F
-1.06_F
-1.07_F
-1.08_F
-1.01_R
-1.02_R
-1.03_R
-1.04_R
-1.05_R
-1.06_R
-1.07_R
-1.08_R
-1.09_F
-1.10_F
-BACTNEGW_F
-BACTPOS_F
-HIDI
-HIDI
-HIDI
-HIDI
-1.09_R
-1.10_R
-BACTNEGW_R
-BACTPOS_R
-HIDI
-HIDI
-HIDI
-HIDI
+Container Name	Description	ContainerType	               AppType	Owner	Operator	
+1		96-Well	Regular	MGX	KH	
+AppServer	AppInstance	
+SequencingAnalysis	
+Well	Sample Name	Comment	Priority	Results Group 1	              Instrument Protocol 1	Analysis Protocol 1	
+A01	17000.9874_F		100	Results_Group	Short50	POP6	
+B01	17000.9875_F		100	Results_Group	Short50	POP6	
+C01	17000.9876_F		100	Results_Group	Short50	POP6	
+D01	17000.9877_F		100	Results_Group	Short50	POP6	
+E01	17000.9878_F		100	Results_Group	Short50	POP6	
+F01	17000.9879_F		100	Results_Group	Short50	POP6	
+G01	17000.9880_F		100	Results_Group	Short50	POP6	
+H01	17000.9881_F		100	Results_Group	Short50	POP6	
+A02	17000.9874_R		100	Results_Group	Short50	POP6	
+B02	17000.9875_R		100	Results_Group	Short50	POP6	
+C02	17000.9876_R		100	Results_Group	Short50	POP6	
+D02	17000.9877_R		100	Results_Group	Short50	POP6	
+E02	17000.9878_R		100	Results_Group	Short50	POP6	
+F02	17000.9879_R		100	Results_Group	Short50	POP6	
+G02	17000.9880_R		100	Results_Group	Short50	POP6	
+H02	17000.9881_R		100	Results_Group	Short50	POP6	
+A03	17000.9882_F		100	Results_Group	Short50	POP6	
+B03	17000.9883_F		100	Results_Group	Short50	POP6	
+C03	17000.9884_F		100	Results_Group	Short50	POP6	
+D03	17000.9885_F		100	Results_Group	Short50	POP6	
+E03	17000.9886_F		100	Results_Group	Short50	POP6	
+F03	17000.9887_F		100	Results_Group	Short50	POP6	
+G03	17000.9888_F		100	Results_Group	Short50	POP6	
+H03	17000.9889_F		100	Results_Group	Short50	POP6	
+A04	17000.9882_R		100	Results_Group	Short50	POP6	
+B04	17000.9883_R		100	Results_Group	Short50	POP6	
+C04	17000.9884_R		100	Results_Group	Short50	POP6	
+D04	17000.9885_R		100	Results_Group	Short50	POP6	
+E04	17000.9886_R		100	Results_Group	Short50	POP6	
+F04	17000.9887_R		100	Results_Group	Short50	POP6	
+G04	17000.9888_R		100	Results_Group	Short50	POP6	
+H04	17000.9889_R		100	Results_Group	Short50	POP6	
+A05	17000.9890_F		100	Results_Group	Short50	POP6	
+B05	17000.9891_F		100	Results_Group	Short50	POP6	
+C05	17000.9892_F		100	Results_Group	Short50	POP6	
+D05	17000.9893_F		100	Results_Group	Short50	POP6	
+E05	17000.9894_F		100	Results_Group	Short50	POP6	
+F05	17000.9895_F		100	Results_Group	Short50	POP6	
+G05	17000.9896_F		100	Results_Group	Short50	POP6	
+H05	17000.9897_F		100	Results_Group	Short50	POP6	
+A06	17000.9890_R		100	Results_Group	Short50	POP6	
+B06	17000.9891_R		100	Results_Group	Short50	POP6	
+C06	17000.9892_R		100	Results_Group	Short50	POP6	
+D06	17000.9893_R		100	Results_Group	Short50	POP6	
+E06	17000.9894_R		100	Results_Group	Short50	POP6	
+F06	17000.9895_R		100	Results_Group	Short50	POP6	
+G06	17000.9896_R		100	Results_Group	Short50	POP6	
+H06	17000.9897_R		100	Results_Group	Short50	POP6	
+A07	17000.9898_F		100	Results_Group	Short50	POP6	
+B07	17000.9899_F		100	Results_Group	Short50	POP6	
+C07	17000.9900_F		100	Results_Group	Short50	POP6	
+D07	FUNGNEGW_F		100	Results_Group	Short50	POP6	
+E07	FUNGPOS_F		100	Results_Group	Short50	POP6	
+F07	HIDI		100	Results_Group	Short50	POP6	
+G07	HIDI		100	Results_Group	Short50	POP6	
+H07	HIDI		100	Results_Group	Short50	POP6	
+A08	17000.9898_R		100	Results_Group	Short50	POP6	
+B08	17000.9899_R		100	Results_Group	Short50	POP6	
+C08	17000.9900_R		100	Results_Group	Short50	POP6	
+D08	FUNGNEGW_R		100	Results_Group	Short50	POP6	
+E08	FUNGPOS_R		100	Results_Group	Short50	POP6	
+F08	HIDI		100	Results_Group	Short50	POP6	
+G08	HIDI		100	Results_Group	Short50	POP6	
+H08	HIDI		100	Results_Group	Short50	POP6	

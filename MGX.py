@@ -1,35 +1,35 @@
 from time import sleep as wait
-#from collections import defaultdict
 first_list = []
 sec_list = []
-#alpha = []
-#for i in range(65, 65+26):
-#    alpha.append(chr(i))
 
-#Startup
-print(" -------------------------------------- \n"\
-      "|     MGX Sample Number Generator      |\n"\
-      "|    By: Kyle Hamer   v0.1    2014     |\n"\
-      " -------------------------------------- \n\n")
-wait(2)
+# Startup
+print(" ------------------------------------- \n"
+      "|     MGX Sample Number Generator     |\n"
+      "|    By: Kyle Hamer   v0.2    2015    |\n"
+      " ------------------------------------- \n\n")
+wait(1.5)
 
 # One Time Information
 print ("Who is the operator?")
 op = raw_input(">>> ")
 
-runum = raw_input("What is the run number?\n>>> ") #Run number for file name
+runum = raw_input("What is the run number?\n>>> ")  # Run number for file name
 
-while True: #Which Machine?
+while True:  # Which Machine?
     machine = raw_input("Is this being run on Dad or Dave? \n>>> ")
     machine = machine.upper()
-    if machine == 'DAD' or machine == 'DAVE':
-        break # Text is 'blah' or 'blah blah'
+    if machine == 'DAD':
+        text = "\t\t100\tResults_Group\tShort50\tPOP6\t\n"
+        break
+    elif machine == 'DAVE':
+        text = "\t\t100\tResults_Group\tSHORTSEQPOP7\tPOP7\t\n"
+        break
     else:
         print("Invalid response. Try again.")
         wait(1)
         continue
-        
-while True: # Bact or Fung Run?
+
+while True:  # Bact or Fung Run?
     BorF = raw_input("Bacterial (BACT) or Fungal (FUNG) Run? \n>>> ")
     BorF = BorF.upper()
     if BorF == "BACT" or BorF == "FUNG":
@@ -44,7 +44,7 @@ while True: # Bact or Fung Run?
 print "What is the prefix?"
 while True:
     prefix = raw_input(">>> ")
-    if bool(prefix) == False:
+    if bool(prefix) is False:
         break
     else:
         print "What is the range of the suffixes?"
@@ -53,11 +53,11 @@ while True:
         low = int(raw_input(">>> "))
         print "Highest Number?"
         high = int(raw_input(">>> ")) + 1
-        print "Any missing numbers?" # Missing Numbers
+        print "Any missing numbers?"  # Missing Numbers
         ignore = []
         while True:
             test = raw_input(">>> ")
-            if bool(test) == False:
+            if bool(test) is False:
                 break
             elif '-' in test:
                 [test_min, test_max] = test.split('-')
@@ -76,13 +76,13 @@ while True:
         letters = {}
         while True:
             num = raw_input(">>> ")
-            if bool(num) == False:
+            if bool(num) is False:
                 break
             else:
                 print "Which letters? (One at a time)"
                 while True:
                     letter = raw_input(">>> ")
-                    if bool(letter) == False:
+                    if bool(letter) is False:
                         break
                     else:
                         if num in letters.keys():
@@ -92,27 +92,28 @@ while True:
                         letters[num].append(letter)
                         print "Is there any more letters?"
             print "Any more suffixes with letters?"
-        
-        for i in range(low, high): # Build first_list
-            if i in ignore: #ignore sample
+
+        for i in range(low, high):  # Build first_list
+            if i in ignore:  # ignore sample
                 continue
-            elif i < 10: #Minimum 2 digit suffix
-                if str(i) in letters: #If sample has suffix
-                    for let in range(len(letters[str(i)])): #Add letters
-                        first_list.append(prefix + "." + '0' + str(i) + letters[str(i)][let])
+            elif i < 10:  # Minimum 2 digit suffix
+                if str(i) in letters:  # If sample has suffix
+                    for let in range(len(letters[str(i)])):  # Add letters
+                        first_list.append(prefix + "." + '0' + str(i) +
+                                          letters[str(i)][let])
                 else:
                     first_list.append(prefix + "." + '0' + str(i))
             else:
-                if str(i) in letters: #If sample has suffix
-                    for let in range(len(letters[str(i)])): #Add letters
-                        first_list.append(prefix + "." + str(i) + letters[str(i)][let])
+                if str(i) in letters:  # If sample has suffix
+                    for let in range(len(letters[str(i)])):  # Add letters
+                        first_list.append(prefix + "." + str(i) +
+                                          letters[str(i)][let])
                 else:
                     first_list.append(prefix + "." + str(i))
-            
 
         print("Is there another prefix?")
 
-#end repeat
+# end repeat
 first_list.append(BorF + "NEGW")
 first_list.append(BorF + "POS")
 
@@ -128,12 +129,12 @@ if len(first_list) < 3:
 
 for item in first_list:
     sec_list.append(item + "_F")
-    if len(sec_list)%8 == 0:
+    if len(sec_list) % 8 == 0:
         count = 7
         while count >= 0:
             sec_list.append(first_list[first_list.index(item) - count] + "_R")
             count -= 1
-while len(sec_list)%8 != 0:
+while len(sec_list) % 8 != 0:
     sec_list.append('HIDI')
 
 if sec_list[-1] == 'HIDI':
@@ -144,17 +145,28 @@ if sec_list[-1] == 'HIDI':
         else:
             sec_list.append(sec_list[count][:-1] + "R")
 
-while len(sec_list)%8 != 0:
+while len(sec_list) % 8 != 0:
     sec_list.append('HIDI')
 
-for last in sec_list: #Remove in final copy
-    print last
+# Create and write txt file
 
 record = open(runum + '.txt', 'w')
+
 count = 0
-for last in sec_list:
-    record.write(last)
-    count += 1
-    if count < len(sec_list):
-        record.write('\n')
+record.write("Container Name\tDescription\tContainerType\t \
+              AppType\tOwner\tOperator\t\n")
+record.write(runum + "\t\t96-Well\tRegular\tMGX\t" + op + "\t\n")
+record.write("AppServer\tAppInstance\t\n")
+record.write("SequencingAnalysis\t\n")
+record.write("Well\tSample Name\tComment\tPriority\tResults Group 1\t \
+             Instrument Protocol 1\tAnalysis Protocol 1\t\n")
+
+for i in range(1, (len(sec_list)/8)+1):
+    if i < 10:
+        i = '0' + str(i)
+    for x in [chr(a) for a in range(65, 73)]:
+        record.write(x + str(i) + '\t' + sec_list[count]
+                     + text)
+        count += 1
+
 record.close()
